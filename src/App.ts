@@ -2,7 +2,7 @@ import BridgeGame from "./BridgeGame.js";
 import { makeBridge } from "./BridgeMaker.js";
 import { generate } from "./BridgeRandomNumberGenerator.js";
 import { readBridgeSize, readGameCommand, readMoving } from "./InputView.js";
-import { printResult } from "./OutputView.js";
+import { printMap, printResult } from "./OutputView.js";
 import { log, readLine } from "./Util.js";
 
 export default class App {
@@ -16,6 +16,7 @@ export default class App {
       log("")
       const input = await readMoving()
       game.move(input)
+      printMap(game.maze, game.lastMap[0], game.lastMap[1])
       if (game.isOver()) {
         const shouldRetry = await readGameCommand()
         if (shouldRetry === "Q") {
@@ -26,7 +27,8 @@ export default class App {
       }
     }
     log("")
-    game.printLastMap()
+    log("최종 게임 결과")
+    printMap(game.maze, game.lastMap[0], game.lastMap[1])
     log("")
     printResult(!game.isOver(), game.tries)
   }
