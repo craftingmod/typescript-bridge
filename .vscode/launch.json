@@ -16,8 +16,8 @@
         "--debug",
       ],
       "cwd": "${workspaceRoot}",
-      "internalConsoleOptions": "openOnSessionStart",
-      "console": "internalConsole",
+      "internalConsoleOptions": "neverOpen",
+      "console": "integratedTerminal",
       "skipFiles": [
         "<node_internals>/**",
         "node_modules/**"

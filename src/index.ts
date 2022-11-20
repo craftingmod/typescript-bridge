@@ -1,4 +1,5 @@
-import fs from "node:fs/promises"
+import App from "./App.js";
 
-// ESM example
-console.log(`List files: ${await fs.readdir(".")}`)
+const app = new App()
+
+await app.play()
